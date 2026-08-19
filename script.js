@@ -131,5 +131,14 @@ function initAffiliateLinksCheck() {
       const separator = href.includes('?') ? '&' : '?';
       link.setAttribute('href', `${href}${separator}aff_id=151798`);
     }
+
+    // Google Ads Checkout Event Tracking
+    link.addEventListener('click', function() {
+      if (typeof gtag === 'function') {
+        gtag('event', 'begin_checkout', {
+          'send_to': 'AW-18349502774'
+        });
+      }
+    });
   });
 }
